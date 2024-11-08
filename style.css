@@ -1,0 +1,22 @@
+/* Here I set styles for the body of the webpage */
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; 
+}
+
+/* Here I set styles for the main heading (h1) */
+h1 {
+    margin-top: 20px;
+}
+
+/* Here I set styles for the canvas container */
+#canvas-container {
+    width: 100vw; /* Set the width to 100% of the viewport width */
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    overflow: hidden; /* Hide any overflow content that goes outside the container */
+}
