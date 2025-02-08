@@ -11,9 +11,9 @@
     <a-scene>
        <!--II: Assets Section: Preloading models and textures that I will use the most-->
       <a-assets>
-        <a-asset-item id="deskModel" src="assets/models/desk.glb"></a-asset-item>
-        <a-asset-item id="chairModel" src="assets/models/chair.glb"></a-asset-item>
-        <img id="outdoorTexture" src="assets/textures/outdoor.jpg" />
+        <a-asset-item id="deskModel" src="/models/desk.glb"></a-asset-item>
+        <a-asset-item id="chairModel" src="/models/chair.glb"></a-asset-item>
+        <img id="outdoorTexture" src="/textures/outdoor.jpg" />
       </a-assets>
 
    <!--III: Classroom Structure: Create the walls of the classroom, forming a cube classroom-->
@@ -25,35 +25,35 @@
       depth="0.1" 
       material="color: #ffffff; transparent: true; opacity: 0.4; metalness: 0.7; roughness: 0.1; envMapIntensity: 1.0;">
     </a-box>
-    <a-entity gltf-model="url(assets/models/door.glb)" position="-15 0 24.95" scale="7 7 7" rotation="0 180 0"></a-entity>
+    <a-entity gltf-model="url(/models/door.glb)" position="-15 0 24.95" scale="7 7 7" rotation="0 180 0"></a-entity>
 
    <!--Front Wall -->
-      <a-box position="0 10 -25" width="50" height="20" depth="0.1" src="assets/textures/wall.jpg"></a-box>
+      <a-box position="0 10 -25" width="50" height="20" depth="0.1" src="/textures/wall.jpg"></a-box>
    <!-- Left Wall -->
-      <a-box position="-25 10 0" width="0.1" height="20" depth="50" src="assets/textures/wall.jpg"></a-box>
+      <a-box position="-25 10 0" width="0.1" height="20" depth="50" src="/textures/wall.jpg"></a-box>
          <!-- Windows -->
-        <a-entity gltf-model="url(assets/models/window.glb)" position="-5 5 10" scale="4 4 3" rotation="0 180 0"></a-entity>
+        <a-entity gltf-model="url(/models/window.glb)" position="-5 5 10" scale="4 4 3" rotation="0 180 0"></a-entity>
             <a-plane position="-24.9 9 10.5" width="17" height="7" src="#outdoorTexture" rotation="0 90 0" transparent="true" opacity="0.8" material="shader: flat"></a-plane>
-          <a-entity gltf-model="url(assets/models/window.glb)" position="-5 5 -10" scale="4 4 3" rotation="0 180 0"></a-entity>
+          <a-entity gltf-model="url(/models/window.glb)" position="-5 5 -10" scale="4 4 3" rotation="0 180 0"></a-entity>
             <a-plane position="-24.9 9 -9.5" width="17" height="7" src="#outdoorTexture" rotation="0 90 0" transparent="true" opacity="0.8" material="shader: flat"></a-plane>
 
     <!-- Right Wall-->
-    <a-box position="25 10 0" width="0.1" height="20" depth="50" src="assets/textures/wall.jpg"></a-box>
+    <a-box position="25 10 0" width="0.1" height="20" depth="50" src="/textures/wall.jpg"></a-box>
       <!-- Radiators -->
-      <a-entity gltf-model="url(assets/models/radiator.glb)" position="23.7 1 10" scale="7 7 7" rotation="0 270 0"   ></a-entity>
-      <a-entity gltf-model="url(assets/models/radiator.glb)" position="23.7 1 -10" scale="7 7 7" rotation="0 270 0" ></a-entity>   
+      <a-entity gltf-model="url(/models/radiator.glb)" position="23.7 1 10" scale="7 7 7" rotation="0 270 0"   ></a-entity>
+      <a-entity gltf-model="url(/models/radiator.glb)" position="23.7 1 -10" scale="7 7 7" rotation="0 270 0" ></a-entity>   
       <!--Decoration: Frames and Plant -->
-      <a-entity gltf-model="url(assets/models/frame.glb)" position="24.8 2 9" scale="0.09 0.09 0.09" rotation="0 270 0"></a-entity>
-      <a-entity gltf-model="url(assets/models/frame2.glb)" position="24.8 2 1" scale="0.09 0.09 0.09" rotation="0 270 0"></a-entity>
-      <a-entity gltf-model="url(assets/models/plant.glb)" position="22.5 0 5" scale="7 8 8" rotation="0 270 0"   ></a-entity>
+      <a-entity gltf-model="url(/models/frame.glb)" position="24.8 2 9" scale="0.09 0.09 0.09" rotation="0 270 0"></a-entity>
+      <a-entity gltf-model="url(/models/frame2.glb)" position="24.8 2 1" scale="0.09 0.09 0.09" rotation="0 270 0"></a-entity>
+      <a-entity gltf-model="url(/models/plant.glb)" position="22.5 0 5" scale="7 8 8" rotation="0 270 0"   ></a-entity>
 
     <!-- Floor -->
-      <a-box position="0 0 0" width="50" height="0.1" depth="50" src="assets/textures/floor.jpg"></a-box>
+      <a-box position="0 0 0" width="50" height="0.1" depth="50" src="/textures/floor.jpg"></a-box>
 
     <!-- Ceiling -->
-      <a-box position="0 20 0" width="50" height="0.1" depth="50" src="assets/textures/wall.jpg"></a-box>
+      <a-box position="0 20 0" width="50" height="0.1" depth="50" src="/textures/wall.jpg"></a-box>
       <!-- Projector -->
-      <a-entity gltf-model="url(assets/models/projector.glb)" position="0 18 -15" scale="6 6 6" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="url(/models/projector.glb)" position="0 18 -15" scale="6 6 6" rotation="0 180 0"></a-entity>
      
      
      
@@ -72,76 +72,76 @@
       <a-light type="point" position="0 18 0" intensity="0.6" decay="2" distance="40" color="#f5f5dc" castShadow="true"></a-light>
       <a-light type="point" position="0 18 15" intensity="0.6" decay="2" distance="40" color="#f5f5dc" castShadow="true"></a-light>
             <!-- Lamp Models -->
-            <a-entity gltf-model="url(assets/models/lamp.glb)" position="0 19 2" scale="2.5 1.5 2.5" material="shader: standard; emissive: #ffffff; emissiveIntensity: 2" rotation="180 90 0"></a-entity>
-            <a-entity gltf-model="url(assets/models/lamp.glb)" position="0 19 17" scale="2.5 1.5 2.5" material="shader: standard; emissive: #ffffff; emissiveIntensity: 2" rotation="180 90 0"></a-entity>
+            <a-entity gltf-model="url(/models/lamp.glb)" position="0 19 2" scale="2.5 1.5 2.5" material="shader: standard; emissive: #ffffff; emissiveIntensity: 2" rotation="180 90 0"></a-entity>
+            <a-entity gltf-model="url(/models/lamp.glb)" position="0 19 17" scale="2.5 1.5 2.5" material="shader: standard; emissive: #ffffff; emissiveIntensity: 2" rotation="180 90 0"></a-entity>
 
 
   <!--VI: Classroom Furniture Arrangement: Rows of desks with chairs -->
   
     <!--Board Display -->
-      <a-entity gltf-model="url(assets/models/board.glb)" id="whiteboard" position="2 11 -24" scale="4 4 4" rotation="0 270 0">
+      <a-entity gltf-model="url(/models/board.glb)" id="whiteboard" position="2 11 -24" scale="4 4 4" rotation="0 270 0">
       <a-text value="Welcome to Ana's Virtual Classroom!" position="0.08 0.8 1.9" color="#fff" scale="1 1 1" rotation="0 90 0"></a-text></a-entity>
 
     <!-- Whiteboard  -->
-      <a-entity gltf-model="url(assets/models/smallboard.glb)" position="-15 0 -22" scale="0.8 0.8 0.8" rotation="0 90 0"></a-entity>
-      <a-entity gltf-model="url(assets/models/air_conditioner.glb)" position="-15 10 -24" scale="1.3 1.3 1.3" rotation="0 270 0"></a-entity>
+      <a-entity gltf-model="url(/models/smallboard.glb)" position="-15 0 -22" scale="0.8 0.8 0.8" rotation="0 90 0"></a-entity>
+      <a-entity gltf-model="url(/models/air_conditioner.glb)" position="-15 10 -24" scale="1.3 1.3 1.3" rotation="0 270 0"></a-entity>
 
     <!-- Clock -->
-      <a-entity gltf-model="url(assets/models/clock.glb)" position="15 16 -24.5" scale="2 2 2"></a-entity>
+      <a-entity gltf-model="url(/models/clock.glb)" position="15 16 -24.5" scale="2 2 2"></a-entity>
 
    <!-- Bookshelf -->
-      <a-entity gltf-model="url(assets/models/bookshelf.glb)" position="20 0 -23" scale="4 8 8" rotation="0 90 0"></a-entity>
+      <a-entity gltf-model="url(/models/bookshelf.glb)" position="20 0 -23" scale="4 8 8" rotation="0 90 0"></a-entity>
 
    <!-- Teacher's Desk -->
-      <a-entity gltf-model="url(assets/models/desk.glb)" position="6 0 -15" scale="7 7 7" rotation="0 90 0"></a-entity>
-      <a-entity gltf-model="url(assets/models/books2.glb)" position="5 5.2 -16" scale="0.5 0.5 0.5" rotation="0 0 0"></a-entity>
-      <a-entity gltf-model="url(assets/models/markers.glb)" position="-1 5.2 -16" scale="0.4 0.4 0.4" rotation="0 0 0"></a-entity>
-      <a-entity gltf-model="url(assets/models/bag.glb)" position="6.5 1.5 -16" scale="5 8 8" rotation="0 90 0"></a-entity>
-      <a-entity gltf-model="url(assets/models/airConditionerController.glb)" position="0 5.3 -17" scale="10 7 6" rotation="0 180 0"></a-entity>
-      <a-entity gltf-model="url(assets/models/chair.glb)" position="2 0 -20" scale="1 1 1" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="url(/models/desk.glb)" position="6 0 -15" scale="7 7 7" rotation="0 90 0"></a-entity>
+      <a-entity gltf-model="url(/models/books2.glb)" position="5 5.2 -16" scale="0.5 0.5 0.5" rotation="0 0 0"></a-entity>
+      <a-entity gltf-model="url(/models/markers.glb)" position="-1 5.2 -16" scale="0.4 0.4 0.4" rotation="0 0 0"></a-entity>
+      <a-entity gltf-model="url(/models/bag.glb)" position="6.5 1.5 -16" scale="5 8 8" rotation="0 90 0"></a-entity>
+      <a-entity gltf-model="url(/models/airConditionerController.glb)" position="0 5.3 -17" scale="10 7 6" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="url(/models/chair.glb)" position="2 0 -20" scale="1 1 1" rotation="0 180 0"></a-entity>
 
  
    <!-- First Row of Desks-->
       <a-entity position="-10 0.75 -4">
-        <a-entity gltf-model="url(assets/models/desk.glb)" position="0 0 -2" scale="7 7 7" rotation="0 270 0"></a-entity>
-        <a-entity gltf-model="url(assets/models/laptop2.glb)" position="2 5.3 0" scale="2 2 2" rotation="0 0 0"></a-entity>
-        <a-entity gltf-model="url(assets/models/chair.glb)" position="2.5 0 2" scale="1 1 1" rotation="0 0 0"></a-entity>
-        <a-entity gltf-model="url(assets/models/chair.glb)" position="5.5 0 2" scale="1 1 1" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model="url(/models/desk.glb)" position="0 0 -2" scale="7 7 7" rotation="0 270 0"></a-entity>
+        <a-entity gltf-model="url(/models/laptop2.glb)" position="2 5.3 0" scale="2 2 2" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model="url(/models/chair.glb)" position="2.5 0 2" scale="1 1 1" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model="url(/models/chair.glb)" position="5.5 0 2" scale="1 1 1" rotation="0 0 0"></a-entity>
       </a-entity>
 
       <a-entity position="5 0.75 -5">
-        <a-entity gltf-model="url(assets/models/desk.glb)" position="0 0 0" scale="7 7 7" rotation="0 270 0"></a-entity>
-        <a-entity gltf-model="url(assets/models/chair.glb)" position="2.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
-        <a-entity gltf-model="url(assets/models/chair.glb)" position="5.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model="url(/models/desk.glb)" position="0 0 0" scale="7 7 7" rotation="0 270 0"></a-entity>
+        <a-entity gltf-model="url(/models/chair.glb)" position="2.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model="url(/models/chair.glb)" position="5.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
       </a-entity>
 
     <!-- Second Row of Desks-->
       <a-entity position="-10 0.75 4">
-        <a-entity gltf-model="url(assets/models/desk.glb)" position="0 0 0" scale="7 7 7" rotation="0 270 0"></a-entity>
-        <a-entity gltf-model="url(assets/models/chair.glb)" position="2.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
-        <a-entity gltf-model="url(assets/models/chair.glb)" position="5.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model="url(/models/desk.glb)" position="0 0 0" scale="7 7 7" rotation="0 270 0"></a-entity>
+        <a-entity gltf-model="url(/models/chair.glb)" position="2.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model="url(/models/chair.glb)" position="5.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
       </a-entity>
 
       <a-entity position="5 0.75 4">
-        <a-entity gltf-model="url(assets/models/desk.glb)" position="0 0 0" scale="7 7 7" rotation="0 270 0"></a-entity>
-        <a-entity gltf-model="url(assets/models/laptop.glb)" position="2 5.5 2" scale="1 1 1" rotation="0 0 0" ></a-entity>
-        <a-entity gltf-model="url(assets/models/chair.glb)" position="2.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
-        <a-entity gltf-model="url(assets/models/chair.glb)" position="5.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model="url(/models/desk.glb)" position="0 0 0" scale="7 7 7" rotation="0 270 0"></a-entity>
+        <a-entity gltf-model="url(/models/laptop.glb)" position="2 5.5 2" scale="1 1 1" rotation="0 0 0" ></a-entity>
+        <a-entity gltf-model="url(/models/chair.glb)" position="2.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model="url(/models/chair.glb)" position="5.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
       </a-entity>
 
     <!-- Third Row of Desks-->
       <a-entity position="-10 0.75 12">
-        <a-entity gltf-model="url(assets/models/desk.glb)" position="0 0 0" scale="7 7 7" rotation="0 270 0"></a-entity>
-        <a-entity gltf-model="url(assets/models/books.glb)" position="6.5 5.5 2.5" scale="4.5 4.5 4.5" rotation="0 0 0" ></a-entity>
-        <a-entity gltf-model="url(assets/models/chair.glb)" position="2.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
-        <a-entity gltf-model="url(assets/models/chair.glb)" position="5.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model="url(/models/desk.glb)" position="0 0 0" scale="7 7 7" rotation="0 270 0"></a-entity>
+        <a-entity gltf-model="url(/models/books.glb)" position="6.5 5.5 2.5" scale="4.5 4.5 4.5" rotation="0 0 0" ></a-entity>
+        <a-entity gltf-model="url(/models/chair.glb)" position="2.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model="url(/models/chair.glb)" position="5.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
       </a-entity>
 
       <a-entity position="5 0.75 12">
-        <a-entity gltf-model="url(assets/models/desk.glb)" position="0 0 0" scale="7 7 7" rotation="0 270 0"></a-entity>
-        <a-entity gltf-model="url(assets/models/backpack.glb)" position="0 1 -14" scale="4 4 4" rotation="0 90 0" ></a-entity>
-        <a-entity gltf-model="url(assets/models/chair.glb)" position="2.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
-        <a-entity gltf-model="url(assets/models/chair.glb)" position="5.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model="url(/models/desk.glb)" position="0 0 0" scale="7 7 7" rotation="0 270 0"></a-entity>
+        <a-entity gltf-model="url(/models/backpack.glb)" position="0 1 -14" scale="4 4 4" rotation="0 90 0" ></a-entity>
+        <a-entity gltf-model="url(/models/chair.glb)" position="2.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model="url(/models/chair.glb)" position="5.5 0 4" scale="1 1 1" rotation="0 0 0"></a-entity>
       </a-entity>
 
       
