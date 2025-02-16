@@ -1,4 +1,4 @@
-//Tool bar
+//HERE Tool Animation handling 
 import * as THREE from 'three';
 
 

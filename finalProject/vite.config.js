@@ -1,8 +1,8 @@
 // Enabling Source Map
 // When we get error, we look at console and file in line with error that occured
 export default {
-    base: '/finalproject/',
-    build: {
-      sourcemap: true
-    }
+  base: './',  // Use relative paths
+  build: {
+    sourcemap: true
   }
+}

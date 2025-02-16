@@ -4,27 +4,29 @@ import { Player } from './player';
 import { WorldChunk } from './worldChunk';
 import { blocks } from './blocks';
 
-//For helper blocks 
+//For helper blocks, materials and geometries for visualizing collisions and contacts
 const collisionMaterial = new THREE.MeshBasicMaterial({
-    color: 0xff0000,
+    color: 0xff0000, //red color for collision helpers
     transparent: true,
     opacity: 0.2
   });
-  const collisionGeometry = new THREE.BoxGeometry(1.001, 1.001, 1.001);
+  const collisionGeometry = new THREE.BoxGeometry(1.001, 1.001, 1.001); //the red collision block
   
   //For contacted blocks
   const contactMaterial = new THREE.MeshBasicMaterial({ 
-    wireframe: true, 
-    color: 0x00ff00 
+    wireframe: true,  // Display wireframe for contact points
+    color: 0x00ff00   // Green color for contact helpers
 });
-  const contactGeometry = new THREE.SphereGeometry(0.05, 6, 6);
+  const contactGeometry = new THREE.SphereGeometry(0.05, 6, 6); // Small spheres to visualize contact points
 
 export class Physics{
+    // Simulation rate and timestep configuration
     simulationRate=200;
     timestep=1/this.simulationRate;
     accumulator=0;
     gravity=32;
 
+     // Constructor that adds a group for visualization helpers (collision and contact markers)
     constructor(scene){
         this.helpers= new THREE.Group();
         scene.add(this.helpers);
@@ -36,27 +38,31 @@ export class Physics{
         this.accumulator +=dt;
 
         while(this.accumulator>=this.timestep){
-        this.helpers.clear();
-        player.velocity.y -= this.gravity * this.timestep;
+        this.helpers.clear(); // Clear previous helpers (visualizations)
+        player.velocity.y -= this.gravity * this.timestep; // Apply gravity to the player
         player.applyInputs(this.timestep); // passing the movement keys
-        player.updateBoundsHelper();
-        this.detectCollisions(player,world);
-        this.accumulator -= this.timestep;
+        player.updateBoundsHelper(); // Update the player's bounding box
+        this.detectCollisions(player,world); // Detect and resolve collisions
+        this.accumulator -= this.timestep; // Decrease accumulator by timestep
         }
     }
 
     // Main function for collision detection 
     detectCollisions(player, world) {
-        player.onGround=false;
+        player.onGround=false;  // Assume player is not on the ground initially
 
+         // Broad-phase collision detection (find potential candidates)
         const candidates = this.broadPhase(player, world);
+         // Narrow-phase collision detection (filter out actual collisions)
         const collisions = this.narrowPhase(candidates,player);
     
+         // If there are collisions, resolve them
        if (collisions.length > 0) {
          this.resolveCollisions(collisions, player);
         }
       }
 
+      // Broad-phase collision detection: Identify possible candidates for collisions
       // Search against the world to return all possible blocks the player may be colliding with 
       broadPhase(player,world){
         const candidates=[];
@@ -83,9 +89,9 @@ export class Physics{
                 for(let z=extents.z.min; z<=extents.z.max;z++){
                     const block=world.getBlock(x,y,z);
                     if(block && block.id !== blocks.empty.id){
-                        const blockPos={x,y,z};
+                        const blockPos={x,y,z};  // Position of the potential colliding block
                         candidates.push(blockPos); //push it to the array of candidates
-                        this.addCollisionHelper(blockPos);
+                        this.addCollisionHelper(blockPos);  // Visualize this potential collision
                     }
             
                 }
@@ -96,11 +102,12 @@ export class Physics{
         return candidates;
       }
 
+      // Narrow-phase collision detection: Check actual collisions against the player
       // Narrows down the blocks found in the broad-phase to the set  of blocks the player is actually colliding with
-
       narrowPhase(candidates, player) {
         const collisions = [];
     
+        // Iterate over all candidate blocks to check for actual collisions
         for (const block of candidates) {
             const p = player.position;
     

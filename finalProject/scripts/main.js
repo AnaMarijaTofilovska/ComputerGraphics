@@ -13,7 +13,7 @@ import { Tool } from './tool';
 
 
 
-// UI Setup
+// UI Setup (Shows FPS and performance stats)
 const stats = new Stats();
 document.body.appendChild(stats.dom);
 
@@ -27,7 +27,7 @@ renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 document.body.appendChild(renderer.domElement);
 
 
-//Camera setup 
+//Camera setup (for free movement and orbit view)
 const orbitCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight);
 orbitCamera.position.set(-32,16,-32);
 
@@ -45,13 +45,11 @@ world.generate();
 scene.add(world);
 
 
-
-
-
 //Creating instance of player
 const player=new Player(scene);
 const physics=new Physics(scene);
 
+// Load 3D models (e.g., pickaxe for the player)
 const modelLoader=new ModelLoader();
 modelLoader.loadModels((models)=>{
     //Add the model to player
@@ -61,9 +59,8 @@ modelLoader.loadModels((models)=>{
 
 });
 
-
+//Lights setup (Sunlight and Ambient light)
 const sun= new THREE.DirectionalLight();
-//Lights setup
 function setupLights(){
    
     sun.position.set(50,50,50);
@@ -88,6 +85,7 @@ function setupLights(){
     scene.add(ambient);
 }
 
+// Handles block placement and removal when clicking
 function onMouseDown(event){
     if(player.controls.isLocked && player.selectedCoords ){
         if(player.activeBlockId===blocks.empty.id){
@@ -115,7 +113,8 @@ function onMouseDown(event){
 document.addEventListener('mousedown',onMouseDown);
 
 let previousTime=performance.now();
-//Render loop
+
+//Render loop(updates physics, player, and world)
 function animate(){
     let currentTime=performance.now();
     let dt= (currentTime- previousTime) / 1000;
@@ -124,17 +123,18 @@ function animate(){
 
     if(player.controls.isLocked){
         physics.update(dt,player,world); //passing physics
-        player.update(world);
-        world.update(player);
+        player.update(world); //update player state
+        world.update(player); //update world state
 
+        // Move the sun relative to the player's position
         sun.position.copy(player.position);
         sun.position.sub(new THREE.Vector3(-50,-50,-50));
         sun.target.position.copy(player.position);
     }
   
-   
+    // Render the scene from the correct camera (orbitCamera or player camera)
     renderer.render(scene,player.controls.isLocked ? player.camera: orbitCamera ); //we use the player camera
-    stats.update(); 
+    stats.update();  // Update performance stats
 
     previousTime=currentTime; 
 }
@@ -154,7 +154,7 @@ window.addEventListener('resize', () => {
 
   });
 
-
+// Initialize the game
   setupLights();
   createUI(scene,world,player);
   animate();
